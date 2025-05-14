@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox alignment="CENTER" spacing="10.0"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.sss.HelloController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Weekly Allowance Input -->
+    <TextField fx:id="allowanceField" promptText="Enter Weekly Allowance"/>
+    <Button text="Set Weekly Allowance" onAction="#onSetAllowanceClick"/>
+
+    <!-- Expense Amount Input -->
+    <TextField fx:id="expenseAmount" promptText="Enter Expense Amount"/>
+
+    <!-- Expense Category Buttons -->
+    <HBox spacing="20">
+        <VBox alignment="CENTER" spacing="5">
+            <Button text="Add Food Expense" onAction="#onAddFoodExpense"/>
+            <Label fx:id="foodTotalLabel" text="Total Food: $0.0"/>
+        </VBox>
+        <VBox alignment="CENTER" spacing="5">
+            <Button text="Add Travel Expense" onAction="#onAddTravelExpense"/>
+            <Label fx:id="travelTotalLabel" text="Total Travel: $0.0"/>
+        </VBox>
+        <VBox alignment="CENTER" spacing="5">
+            <Button text="Add Rent Expense (Once Per Month)" onAction="#onAddRentExpense"/>
+            <Label fx:id="rentTotalLabel" text="Total Rent: $0.0"/>
+        </VBox>
+    </HBox>
+
+    <!-- Expense Breakdown Pie Chart -->
+    <PieChart fx:id="expensePieChart" prefHeight="200" prefWidth="300"/>
+
+    <!-- Summary Information -->
+    <Label fx:id="totalSavingsLabel" text="Total Monthly Savings: $0.0"/>
+    <Label fx:id="remainingBalanceLabel" text="Remaining Allowance: $0.0"/>
+    <Label fx:id="totalSpentLabel" text="Total Spent This Week: $0.0"/>
+
+    <!-- Weekly Reset Button -->
+    <Button text="Reset Weekly Expenses" onAction="#onResetWeeklyExpensesButtonClick"/>
+</VBox>
