@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 
-<VBox alignment="CENTER" spacing="10.0"
+<VBox alignment="CENTER" spacing="15.0"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.sss.HelloController">
 
@@ -15,36 +15,50 @@
     </padding>
 
     <!-- Weekly Allowance Input -->
-    <TextField fx:id="allowanceField" promptText="Enter Weekly Allowance"/>
-    <Button text="Set Weekly Allowance" onAction="#onSetAllowanceClick"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Weekly Allowance:"/>
+        <TextField fx:id="allowanceField" promptText="Enter weekly allowance" prefWidth="150"/>
+        <Button text="Set" onAction="#onSetAllowanceClick" prefWidth="60"/>
+    </HBox>
 
     <!-- Expense Amount Input -->
-    <TextField fx:id="expenseAmount" promptText="Enter Expense Amount"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Expense Amount:"/>
+        <TextField fx:id="expenseAmount" promptText="Enter amount" prefWidth="150"/>
+    </HBox>
 
-    <!-- Expense Category Buttons -->
-    <HBox spacing="20">
-        <VBox alignment="CENTER" spacing="5">
-            <Button text="Add Food Expense" onAction="#onAddFoodExpense"/>
-            <Label fx:id="foodTotalLabel" text="Total Food: $0.0"/>
+    <!-- Expense Category Buttons and Totals -->
+    <HBox spacing="30" alignment="CENTER">
+
+        <VBox spacing="5" alignment="CENTER">
+            <Button text="Add Food Expense" onAction="#onAddFoodExpense" prefWidth="130"/>
+            <Label fx:id="foodTotalLabel" text="Total Food: ₱0.00"/>
         </VBox>
-        <VBox alignment="CENTER" spacing="5">
-            <Button text="Add Travel Expense" onAction="#onAddTravelExpense"/>
-            <Label fx:id="travelTotalLabel" text="Total Travel: $0.0"/>
+
+        <VBox spacing="5" alignment="CENTER">
+            <Button text="Add Travel Expense" onAction="#onAddTravelExpense" prefWidth="130"/>
+            <Label fx:id="travelTotalLabel" text="Total Travel: ₱0.00"/>
         </VBox>
-        <VBox alignment="CENTER" spacing="5">
-            <Button text="Add Rent Expense (Once Per Month)" onAction="#onAddRentExpense"/>
-            <Label fx:id="rentTotalLabel" text="Total Rent: $0.0"/>
+
+        <VBox spacing="5" alignment="CENTER">
+            <Button text="Add Rent Expense (Once Per Month)" onAction="#onAddRentExpense" prefWidth="180"/>
+            <Label fx:id="rentTotalLabel" text="Total Rent: ₱0.00"/>
         </VBox>
+
     </HBox>
 
     <!-- Expense Breakdown Pie Chart -->
-    <PieChart fx:id="expensePieChart" prefHeight="200" prefWidth="300"/>
+    <PieChart fx:id="expensePieChart" prefHeight="250" prefWidth="350"/>
 
     <!-- Summary Information -->
-    <Label fx:id="totalSavingsLabel" text="Total Monthly Savings: $0.0"/>
-    <Label fx:id="remainingBalanceLabel" text="Remaining Allowance: $0.0"/>
-    <Label fx:id="totalSpentLabel" text="Total Spent This Week: $0.0"/>
+    <Label fx:id="totalSavingsLabel" style="-fx-text-fill: red;" text=""/>
+    <Label fx:id="remainingBalanceLabel" style="-fx-font-weight: bold;" text="Remaining Allowance: ₱0.00"/>
+    <Label fx:id="totalSpentLabel" style="-fx-font-weight: bold;" text="Total Spent This Week: ₱0.00"/>
 
-    <!-- Weekly Reset Button -->
-    <Button text="Reset Weekly Expenses" onAction="#onResetWeeklyExpensesButtonClick"/>
+    <!-- Action Buttons -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Reset Weekly Expenses" onAction="#onResetWeeklyExpensesButtonClick" prefWidth="160"/>
+        <Button text="Show Expense History" onAction="#onShowHistoryButtonClick" prefWidth="160"/>
+    </HBox>
+
 </VBox>
